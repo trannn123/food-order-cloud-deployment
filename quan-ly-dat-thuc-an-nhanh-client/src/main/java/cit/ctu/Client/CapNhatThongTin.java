@@ -110,18 +110,21 @@ public class CapNhatThongTin extends HttpServlet {
         out.println("<i class='bi bi-house-door-fill me-1'></i>Trang chủ");
         out.println("</a>");
 
-        out.println("<a href='HoaDonDaDat' class='btn invoice-btn btn-sm me-2'>");
-        out.println("<i class='bi bi-receipt-cutoff me-1'></i>Hóa đơn đã đặt");
-        out.println("</a>");
+        if(!userSession.getVaiTro().equals("nhanvien")){
+            out.println("<a href='HoaDonDaDat' class='btn invoice-btn btn-sm me-2'>");
+            out.println("<i class='bi bi-receipt-cutoff me-1'></i>Hóa đơn đã đặt");
+            out.println("</a>");
 
-        out.println("<a href='XemGioHang' class='btn btn-danger btn-sm cart-btn'>");
-        out.println("<i class='bi bi-cart3 me-1'></i>Giỏ hàng");
+            out.println("<a href='XemGioHang' class='btn btn-danger btn-sm cart-btn'>");
+            out.println("<i class='bi bi-cart3 me-1'></i>Giỏ hàng");
 
-        if (tongSoLuongTrongGio > 0) {
-            out.println("<span class='cart-badge'>" + tongSoLuongTrongGio + "</span>");
+            if (tongSoLuongTrongGio > 0) {
+                out.println("<span class='cart-badge'>" + tongSoLuongTrongGio + "</span>");
+            }
+
+            out.println("</a>");
         }
 
-        out.println("</a>");
 
         out.println("<span class='welcome-text ms-2'>Xin chào, <b>" + user.getHoTen() + "</b></span>");
 

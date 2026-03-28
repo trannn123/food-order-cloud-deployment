@@ -89,7 +89,6 @@ public class DoiMatKhau extends HttpServlet {
         out.println("</head>");
         out.println("<body>");
 
-        // ===== HEADER CHUẨN =====
         out.println("<nav class='navbar navbar-expand-lg navbar-custom mb-4'>");
         out.println("<div class='container py-2'>");
 
@@ -103,18 +102,20 @@ public class DoiMatKhau extends HttpServlet {
         out.println("<i class='bi bi-house-door-fill me-1'></i>Trang chủ");
         out.println("</a>");
 
-        out.println("<a href='HoaDonDaDat' class='btn invoice-btn btn-sm me-2'>");
-        out.println("<i class='bi bi-receipt-cutoff me-1'></i>Hóa đơn đã đặt");
-        out.println("</a>");
+        if(!user.getVaiTro().equals("nhanvien")){
+            out.println("<a href='HoaDonDaDat' class='btn invoice-btn btn-sm me-2'>");
+            out.println("<i class='bi bi-receipt-cutoff me-1'></i>Hóa đơn đã đặt");
+            out.println("</a>");
 
-        out.println("<a href='XemGioHang' class='btn btn-danger btn-sm cart-btn'>");
-        out.println("<i class='bi bi-cart3 me-1'></i>Giỏ hàng");
+            out.println("<a href='XemGioHang' class='btn btn-danger btn-sm cart-btn'>");
+            out.println("<i class='bi bi-cart3 me-1'></i>Giỏ hàng");
 
-        if (tongSoLuongTrongGio > 0) {
-            out.println("<span class='cart-badge'>" + tongSoLuongTrongGio + "</span>");
+            if (tongSoLuongTrongGio > 0) {
+                out.println("<span class='cart-badge'>" + tongSoLuongTrongGio + "</span>");
+            }
+
+            out.println("</a>");
         }
-
-        out.println("</a>");
 
         out.println("<span class='welcome-text ms-2'>Xin chào, <b>" + user.getHoTen() + "</b></span>");
 
@@ -126,7 +127,6 @@ public class DoiMatKhau extends HttpServlet {
         out.println("</div>");
         out.println("</nav>");
 
-        // ===== CONTENT =====
         out.println("<div class='container'>");
         out.println("<div class='row justify-content-center'>");
         out.println("<div class='col-md-8 col-lg-6'>");
