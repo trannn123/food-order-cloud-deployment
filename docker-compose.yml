@@ -19,7 +19,7 @@ services:
     image: phpmyadmin/phpmyadmin
     container_name: phpmyadmin
     ports:
-      - "8088:80"
+      - "8089:80"
     environment:
       PMA_HOST: mysql
       MYSQL_ROOT_PASSWORD: 123456
@@ -41,6 +41,31 @@ services:
       - "8085:8080"
     depends_on:
       - mysql
+
+  chung-thuc-service:
+    build: ./chung-thuc-service
+    container_name: chung-thuc-container
+    ports:
+      - "8086:8080"
+
+  hoa-don-service:
+    build: ./hoa-don-service
+    container_name: hoa-don-container
+    ports:
+      - "8087:8080"
+    depends_on:
+      - mysql
+      - nguoi-dung-service
+      - mon-an-service
+      - chung-thuc-service
+
+  quan-ly-dat-thuc-an-nhanh-client:
+    build: ./quan-ly-dat-thuc-an-nhanh-client
+    container_name: quan-ly-dat-thuc-an-nhanh-client-container
+    ports:
+      - "8088:8080"
+    depends_on:
+      - hoa-don-service
 
 volumes:
   mysql_data:
