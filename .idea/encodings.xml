@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/chung-thuc-service/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/chung-thuc-service/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/hoa-don-service/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/hoa-don-service/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/mon-an-service/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/mon-an-service/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/nguoi-dung-service/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/nguoi-dung-service/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/quan-ly-dat-thuc-an-nhanh-client/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/quan-ly-dat-thuc-an-nhanh-client/src/main/resources" charset="UTF-8" />
+  </component>
+</project>
