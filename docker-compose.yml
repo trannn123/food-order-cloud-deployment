@@ -67,5 +67,15 @@ services:
     depends_on:
       - hoa-don-service
 
+  nginx:
+    image: nginx:latest
+    container_name: nginx-gateway
+    ports:
+      - "80:80"
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf
+    depends_on:
+      - quan-ly-dat-thuc-an-nhanh-client
+
 volumes:
   mysql_data:
