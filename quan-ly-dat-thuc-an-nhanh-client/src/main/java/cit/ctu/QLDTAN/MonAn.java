@@ -1,7 +1,5 @@
 package cit.ctu.QLDTAN;
 
-import java.util.Date;
-
 public class MonAn {
 
     private int id;
@@ -10,12 +8,12 @@ public class MonAn {
     private int soLuong;
     private String trangThai;
     private String moTa;
-    private Date ngayTao;
+    private MyDate ngayTao;
 
     public MonAn() {}
 
     public MonAn(int id, String tenMon, double gia, int soLuong,
-                 String trangThai, String moTa, Date ngayTao) {
+                 String trangThai, String moTa, MyDate ngayTao) {
         this.id = id;
         this.tenMon = tenMon;
         this.gia = gia;
@@ -43,6 +41,6 @@ public class MonAn {
     public String getMoTa() { return moTa; }
     public void setMoTa(String moTa) { this.moTa = moTa; }
 
-    public Date getNgayTao() { return ngayTao; }
-    public void setNgayTao(Date ngayTao) { this.ngayTao = ngayTao; }
+    public MyDate getNgayTao() { return ngayTao; }
+    public void setNgayTao(MyDate ngayTao) { this.ngayTao = ngayTao; }
 }

@@ -101,7 +101,7 @@ public class MonAnImpl implements IMonAn {
         MonAn mon = null;
         try {
             Connection conn = DBConnection.getConnection();
-            String sql = "SELECT * FROM MonAn WHERE id=?";
+            String sql = "SELECT * FROM monan WHERE id=?";
             PreparedStatement ps = conn.prepareStatement(sql);
             ps.setInt(1, id);
             ResultSet rs = ps.executeQuery();
