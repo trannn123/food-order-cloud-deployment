@@ -51,6 +51,13 @@ public class DanhSachMonAn extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
+        HttpSession session = request.getSession();
+
+        if (session.getAttribute("user") == null) {
+            response.sendRedirect("DangNhap");
+            return;
+        }
+
         Response res = target
                 .path("rest")
                 .path("monan")
@@ -66,7 +73,6 @@ public class DanhSachMonAn extends HttpServlet {
 
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
-        HttpSession session = request.getSession();
         NguoiDung nd = (NguoiDung) session.getAttribute("user");
         List<ItemGioHang> cart = (List<ItemGioHang>) session.getAttribute("cart");
 

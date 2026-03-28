@@ -31,6 +31,13 @@ public class XoaGioHang extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
+        HttpSession session = request.getSession();
+
+        if (session.getAttribute("user") == null) {
+            response.sendRedirect("DangNhap");
+            return;
+        }
+
         String idStr = request.getParameter("id");
 
         if (idStr == null || idStr.trim().isEmpty()) {
@@ -46,7 +53,6 @@ public class XoaGioHang extends HttpServlet {
             return;
         }
 
-        HttpSession session = request.getSession();
         List<ItemGioHang> cart = (List<ItemGioHang>) session.getAttribute("cart");
 
         if (cart != null) {

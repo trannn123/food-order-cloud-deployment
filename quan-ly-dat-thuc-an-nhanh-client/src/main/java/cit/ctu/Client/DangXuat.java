@@ -40,7 +40,6 @@ public class DangXuat extends HttpServlet {
         	session.invalidate();
         }
         response.sendRedirect("DangNhap");
-		return;
     }
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
