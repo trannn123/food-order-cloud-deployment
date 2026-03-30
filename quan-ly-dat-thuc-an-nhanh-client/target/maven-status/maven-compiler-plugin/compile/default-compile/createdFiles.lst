@@ -32,7 +32,6 @@ cit\ctu\Client\TrangChu.class
 cit\ctu\Client\QuanLyNguoiDung.class
 cit\ctu\Client\TimMon.class
 cit\ctu\Client\XoaHoaDon.class
-cit\ctu\QLDTAN\Util.class
 cit\ctu\Client\QuanLyChiTietHoaDon$1.class
 cit\ctu\QLDTAN\MyDate.class
 cit\ctu\Client\GiamGioHang.class

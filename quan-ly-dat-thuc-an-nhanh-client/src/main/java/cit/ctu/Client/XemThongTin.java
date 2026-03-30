@@ -18,18 +18,28 @@ import cit.ctu.QLDTAN.NguoiDung;
 import cit.ctu.QLDTAN.ItemGioHang;
 
 import static cit.ctu.Constants.BASE_API_URL_NGUOI_DUNG;
-
+/**
+ * Servlet implementation class XemThongTin
+ */
 @WebServlet("/XemThongTin")
 public class XemThongTin extends HttpServlet {
     private static final long serialVersionUID = 1L;
-
+    /**
+     * @see HttpServlet#HttpServlet()
+     */
     private static final URI uri =
             UriBuilder.fromUri(BASE_API_URL_NGUOI_DUNG).build();
 
     ClientConfig config = new ClientConfig();
     Client client = ClientBuilder.newClient(config);
     WebTarget target = client.target(uri);
-
+    public XemThongTin() {
+        super();
+        // TODO Auto-generated constructor stub
+    }
+    /**
+     * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+     */
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
@@ -195,9 +205,12 @@ public class XemThongTin extends HttpServlet {
         out.println("</body>");
         out.println("</html>");
     }
-
+    /**
+     * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+     */
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        // TODO Auto-generated method stub
         doGet(request, response);
     }
 }

@@ -174,7 +174,6 @@ public class SuaMon extends HttpServlet {
 		out.println("</body>");
 		out.println("</html>");
 	}
-
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */

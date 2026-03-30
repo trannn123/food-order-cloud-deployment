@@ -18,23 +18,31 @@ import cit.ctu.QLDTAN.NguoiDung;
 import cit.ctu.QLDTAN.ItemGioHang;
 
 import static cit.ctu.Constants.BASE_API_URL_NGUOI_DUNG;
-
+/**
+ * Servlet implementation class CapNhatThongTin
+ */
 @WebServlet("/CapNhatThongTin")
 public class CapNhatThongTin extends HttpServlet {
     private static final long serialVersionUID = 1L;
-
+    /**
+     * @see HttpServlet#HttpServlet()
+     */
     private static final URI uri =
             UriBuilder.fromUri(BASE_API_URL_NGUOI_DUNG).build();
-
     Client client = ClientBuilder.newClient(new ClientConfig());
     WebTarget target = client.target(uri);
-
+    public CapNhatThongTin() {
+        super();
+        // TODO Auto-generated constructor stub
+    }
+    /**
+     * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+     */
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
         response.setContentType("text/html;charset=UTF-8");
         request.setCharacterEncoding("UTF-8");
-
         PrintWriter out = response.getWriter();
         HttpSession session = request.getSession(false);
 
@@ -136,7 +144,6 @@ public class CapNhatThongTin extends HttpServlet {
         out.println("</div>");
         out.println("</nav>");
 
-        // ===== FORM =====
         out.println("<div class='container'>");
         out.println("<div class='form-card'>");
 
@@ -180,7 +187,9 @@ public class CapNhatThongTin extends HttpServlet {
         out.println("</body>");
         out.println("</html>");
     }
-
+    /**
+     * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+     */
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 

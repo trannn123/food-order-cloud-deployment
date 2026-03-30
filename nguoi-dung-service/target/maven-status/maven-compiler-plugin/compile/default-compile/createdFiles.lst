@@ -2,6 +2,7 @@ cit\ctu\NguoiDungWS.class
 cit\ctu\NguoiDungImpl.class
 cit\ctu\DBConnection.class
 cit\ctu\ApplicationConfig.class
+cit\ctu\MyDate.class
 cit\ctu\PasswordUtil.class
 cit\ctu\INguoiDung.class
 cit\ctu\NguoiDung.class

@@ -2,7 +2,9 @@ package cit.ctu.Client;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.net.URI;
+import java.text.NumberFormat;
 import java.util.List;
+import java.util.Locale;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -50,6 +52,8 @@ public class QuanLyMon extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
         HttpSession session = request.getSession(false);
+
+        NumberFormat vnd = NumberFormat.getCurrencyInstance(new Locale("vi", "VN"));
 
         if (session == null || session.getAttribute("user") == null) {
             response.sendRedirect("DangNhap");
@@ -141,7 +145,7 @@ public class QuanLyMon extends HttpServlet {
                 out.println("<td><strong>" + m.getTenMon() + "</strong></td>");
                 out.println("<td>" + m.getMoTa() + "</td>");
                 out.println("<td class='text-center'>" + m.getSoLuong() + "</td>");
-                out.println("<td class='text-end text-primary fw-bold'>" + m.getGia() + "</td>");
+                out.println("<td class='text-end text-primary fw-bold'>" + vnd.format(m.getGia()) + "</td>");
 
                 if ("con".equalsIgnoreCase(m.getTrangThai())) {
                 	out.println("<td class='text-center no-wrap'><span class='badge-con'>Còn hàng</span></td>");

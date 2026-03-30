@@ -47,6 +47,8 @@ services:
     container_name: chung-thuc-container
     ports:
       - "8086:8080"
+    depends_on:
+      - nguoi-dung-service
 
   hoa-don-service:
     build: ./hoa-don-service

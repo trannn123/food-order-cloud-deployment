@@ -3,7 +3,9 @@ package cit.ctu.Client;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.net.URI;
+import java.text.NumberFormat;
 import java.util.List;
+import java.util.Locale;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -24,26 +26,37 @@ import org.glassfish.jersey.client.ClientConfig;
 
 import static cit.ctu.Constants.BASE_API_URL_HOA_DON;
 import static cit.ctu.Constants.BASE_API_URL_MON_AN;
-
+/**
+ * Servlet implementation class ChiTietHoaDon
+ */
 @WebServlet("/ChiTietHoaDon")
 public class ChiTietHoaDon extends HttpServlet {
     private static final long serialVersionUID = 1L;
-
+    /**
+     * @see HttpServlet#HttpServlet()
+     */
     private static final URI URI_HOADON =
             UriBuilder.fromUri(BASE_API_URL_HOA_DON).build();
     private static final URI URI_MONAN =
             UriBuilder.fromUri(BASE_API_URL_MON_AN).build();
-
     ClientConfig config = new ClientConfig();
     Client client = ClientBuilder.newClient(config);
     WebTarget target_HoaDon = client.target(URI_HOADON);
     WebTarget target_MonAn = client.target(URI_MONAN);
-
+    public ChiTietHoaDon() {
+        super();
+        // TODO Auto-generated constructor stub
+    }
+    /**
+     * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+     */
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
         HttpSession session = request.getSession();
         NguoiDung nd = (NguoiDung) session.getAttribute("user");
+
+        NumberFormat vnd = NumberFormat.getCurrencyInstance(new Locale("vi", "VN"));
 
         if (nd == null) {
             response.sendRedirect("DangNhap");
@@ -193,14 +206,14 @@ public class ChiTietHoaDon extends HttpServlet {
                 out.println("<tr>");
                 out.println("<td>" + tenMon + "</td>");
                 out.println("<td>" + ct.getSoLuong() + "</td>");
-                out.println("<td class='text-primary fw-bold'>" + ct.getDonGiaTaiThoiDiemTaoHoaDon() + "</td>");
-                out.println("<td class='text-danger fw-bold'>" + thanhTien + "</td>");
+                out.println("<td class='text-primary fw-bold'>" + vnd.format(ct.getDonGiaTaiThoiDiemTaoHoaDon()) + "</td>");
+                out.println("<td class='text-danger fw-bold'>" + vnd.format(thanhTien) + "</td>");
                 out.println("</tr>");
             }
 
             out.println("<tr>");
             out.println("<td colspan='3' class='text-end fw-bold'>Tổng cộng</td>");
-            out.println("<td class='text-danger fw-bold'>" + tong + "</td>");
+            out.println("<td class='text-danger fw-bold'>" + vnd.format(tong) + "</td>");
             out.println("</tr>");
 
             out.println("</tbody></table></div>");
@@ -216,9 +229,12 @@ public class ChiTietHoaDon extends HttpServlet {
         out.println("</body>");
         out.println("</html>");
     }
-
+    /**
+     * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+     */
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        // TODO Auto-generated method stub
         doGet(request, response);
     }
 }

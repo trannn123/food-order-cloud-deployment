@@ -29,7 +29,6 @@ import static cit.ctu.Constants.BASE_API_URL_NGUOI_DUNG;
  */
 @WebServlet("/DangKy")
 public class DangKy extends HttpServlet {
-
     private static final long serialVersionUID = 1L;
     /**
      * @see HttpServlet#HttpServlet()

@@ -18,7 +18,7 @@ import javax.ws.rs.core.UriBuilder;
 import org.glassfish.jersey.client.ClientConfig;
 import cit.ctu.QLDTAN.NguoiDung;
 /**
- * Servlet implementation class DangNhap
+ * Servlet implementation class DangXuat
  */
 @WebServlet("/DangXuat")
 public class DangXuat extends HttpServlet {

@@ -148,7 +148,7 @@ public class TrangChu extends HttpServlet {
 
         out.println("<div class='container d-flex justify-content-center align-items-center' style='min-height:80vh;'>");
         out.println("<div class='bg-white p-5 rounded shadow' style='max-width:700px;width:100%;'>");
-        out.println("<h4 class='text-center mb-4 fw-bold'>Trang chủ</h4>");
+        out.println("<h4 class='text-center mb-4 fw-bold'>TRANG CHỦ</h4>");
         out.println("<div class='row g-4'>");
 
         if ("khachhang".equals(vaiTro)) {

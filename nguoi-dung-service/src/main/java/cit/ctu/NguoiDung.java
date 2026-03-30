@@ -13,13 +13,13 @@ public class NguoiDung {
     private String diaChi;
     private String vaiTro;
     private String trangThai;
-    private Date ngayTao;
+    private MyDate ngayTao;
 
     public NguoiDung() {}
 
     public NguoiDung(int id, String tenDangNhap, String matKhau, String hoTen,
             String email, String soDienThoai, String diaChi,
-            String vaiTro, String trangThai, Date ngayTao) {
+            String vaiTro, String trangThai, MyDate ngayTao) {
 		this.id = id;
 		this.tenDangNhap = tenDangNhap;
 		this.matKhau = matKhau;
@@ -58,8 +58,8 @@ public class NguoiDung {
     public String getTrangThai() { return trangThai; }
     public void setTrangThai(String trangThai) { this.trangThai = trangThai; }
 
-    public Date getNgayTao() { return ngayTao; }
-    public void setNgayTao(Date ngayTao) { this.ngayTao = ngayTao; }
+    public MyDate getNgayTao() { return ngayTao; }
+    public void setNgayTao(MyDate ngayTao) { this.ngayTao = ngayTao; }
     
     public String getMatKhauMoi() {
 		return matKhauMoi;

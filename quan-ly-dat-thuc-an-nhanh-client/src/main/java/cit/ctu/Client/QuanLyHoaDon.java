@@ -2,7 +2,9 @@ package cit.ctu.Client;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.net.URI;
+import java.text.NumberFormat;
 import java.util.List;
+import java.util.Locale;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -12,7 +14,6 @@ import javax.ws.rs.core.*;
 
 import cit.ctu.QLDTAN.HoaDon;
 import cit.ctu.QLDTAN.NguoiDung;
-import cit.ctu.QLDTAN.Util;
 
 import static cit.ctu.Constants.BASE_API_URL_HOA_DON;
 
@@ -42,7 +43,9 @@ public class QuanLyHoaDon extends HttpServlet {
         NguoiDung nd = (NguoiDung) session.getAttribute("user");
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
-        
+
+        NumberFormat vnd = NumberFormat.getCurrencyInstance(new Locale("vi", "VN"));
+
         if (nd == null) {
             response.sendRedirect("DangNhap");
             return;
@@ -141,7 +144,7 @@ public class QuanLyHoaDon extends HttpServlet {
             out.println("<td>#" + hd.getId() + "</td>");
             out.println("<td>" + hd.getNgayDat() + "</td>");
             out.println("<td>" + tongSoLuong + "</td>");
-            out.println("<td class='text-danger fw-bold'>" + tongTien + "</td>");
+            out.println("<td class='text-danger fw-bold'>" + vnd.format(tongTien) + "</td>");
             String currentStatus = hd.getTrangThai();
             out.println("<td>");
             out.println("<select name='trangThai' class='form-select form-select-sm status-select' " +

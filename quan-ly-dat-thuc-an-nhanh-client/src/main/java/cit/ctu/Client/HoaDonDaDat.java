@@ -3,7 +3,9 @@ package cit.ctu.Client;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.net.URI;
+import java.text.NumberFormat;
 import java.util.List;
+import java.util.Locale;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -23,18 +25,27 @@ import cit.ctu.QLDTAN.NguoiDung;
 import cit.ctu.QLDTAN.ItemGioHang;
 
 import static cit.ctu.Constants.BASE_API_URL_HOA_DON;
-
+/**
+ * Servlet implementation class HoaDonDaDat
+ */
 @WebServlet("/HoaDonDaDat")
 public class HoaDonDaDat extends HttpServlet {
     private static final long serialVersionUID = 1L;
-
+    /**
+     * @see HttpServlet#HttpServlet()
+     */
     private static final URI uri =
             UriBuilder.fromUri(BASE_API_URL_HOA_DON).build();
-
     ClientConfig config = new ClientConfig();
     Client client = ClientBuilder.newClient(config);
     WebTarget target = client.target(uri);
-
+    public HoaDonDaDat() {
+        super();
+        // TODO Auto-generated constructor stub
+    }
+    /**
+     * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+     */
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
@@ -44,6 +55,8 @@ public class HoaDonDaDat extends HttpServlet {
 
         HttpSession session = request.getSession();
         NguoiDung nd = (NguoiDung) session.getAttribute("user");
+
+        NumberFormat vnd = NumberFormat.getCurrencyInstance(new Locale("vi", "VN"));
 
         if (nd == null) {
             response.sendRedirect("DangNhap");
@@ -82,7 +95,6 @@ public class HoaDonDaDat extends HttpServlet {
         out.println("<link href='https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css' rel='stylesheet'>");
         out.println("<link href='https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css' rel='stylesheet'>");
 
-        // ===== CSS CHUẨN =====
         out.println("<style>");
         out.println("body{background:#f8f9fa;font-family:system-ui;}");
         out.println(".navbar-custom{background:#fff;box-shadow:0 2px 12px rgba(0,0,0,0.06);}");
@@ -201,7 +213,7 @@ public class HoaDonDaDat extends HttpServlet {
                 out.println("<td><b>#" + hd.getId() + "</b></td>");
                 out.println("<td>" + hd.getNgayDat() + "</td>");
                 out.println("<td>" + tongSoLuong + "</td>");
-                out.println("<td class='text-danger fw-bold'>" + tongTien + "</td>");
+                out.println("<td class='text-danger fw-bold'>" + vnd.format(tongTien) + "</td>");
                 out.println("<td><span class='badge " + mau + " badge-trangthai'>" + hienThi + "</span></td>");
                 out.println("<td><a href='ChiTietHoaDon?id=" + hd.getId() + "' class='btn btn-sm btn-primary'><i class='bi bi-eye'></i> Xem</a></td>");
                 out.println("</tr>");
@@ -217,9 +229,12 @@ public class HoaDonDaDat extends HttpServlet {
         out.println("</div></div>");
         out.println("</body></html>");
     }
-
+    /**
+     * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+     */
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        // TODO Auto-generated method stub
         doGet(request, response);
     }
 }

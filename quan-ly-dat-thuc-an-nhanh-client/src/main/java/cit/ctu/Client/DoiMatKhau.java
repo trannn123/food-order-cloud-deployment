@@ -17,17 +17,26 @@ import cit.ctu.QLDTAN.NguoiDung;
 import cit.ctu.QLDTAN.ItemGioHang;
 
 import static cit.ctu.Constants.BASE_API_URL_NGUOI_DUNG;
-
+/**
+ * Servlet implementation class DoiMatKhau
+ */
 @WebServlet("/DoiMatKhau")
 public class DoiMatKhau extends HttpServlet {
     private static final long serialVersionUID = 1L;
-
+    /**
+     * @see HttpServlet#HttpServlet()
+     */
     private static final URI uri =
             UriBuilder.fromUri(BASE_API_URL_NGUOI_DUNG).build();
-
     Client client = ClientBuilder.newClient(new ClientConfig());
     WebTarget target = client.target(uri);
-
+    public DoiMatKhau() {
+        super();
+        // TODO Auto-generated constructor stub
+    }
+    /**
+     * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+     */
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
@@ -170,7 +179,9 @@ public class DoiMatKhau extends HttpServlet {
         out.println("</body>");
         out.println("</html>");
     }
-
+    /**
+     * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+     */
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 

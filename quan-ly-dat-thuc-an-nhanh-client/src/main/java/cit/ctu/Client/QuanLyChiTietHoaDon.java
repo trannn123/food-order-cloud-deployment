@@ -2,7 +2,9 @@ package cit.ctu.Client;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.net.URI;
+import java.text.NumberFormat;
 import java.util.List;
+import java.util.Locale;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -52,6 +54,8 @@ public class QuanLyChiTietHoaDon extends HttpServlet {
 
         HttpSession session = request.getSession();
         NguoiDung nd = (NguoiDung) session.getAttribute("user");
+
+        NumberFormat vnd = NumberFormat.getCurrencyInstance(new Locale("vi", "VN"));
 
         if (nd == null || !"nhanvien".equals(nd.getVaiTro())) {
             response.sendRedirect("DangNhap");
@@ -162,7 +166,7 @@ public class QuanLyChiTietHoaDon extends HttpServlet {
                 out.println("<td>" + tenMon + "</td>");
                 out.println("<td>" + ct.getSoLuong() + "</td>");
                 out.println("<td class='text-primary fw-bold'>" + ct.getDonGiaTaiThoiDiemTaoHoaDon() + "</td>");
-                out.println("<td class='text-danger fw-bold'>" + thanhTien + "</td>");
+                out.println("<td class='text-danger fw-bold'>" + vnd.format(thanhTien) + "</td>");
                 out.println("</tr>");
             }
 

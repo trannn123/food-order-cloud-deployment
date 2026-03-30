@@ -3,6 +3,7 @@ cit\ctu\ChungThucWS.class
 cit\ctu\ChungThucImpl.class
 cit\ctu\DBConnection.class
 cit\ctu\ApplicationConfig.class
+cit\ctu\MyDate.class
 cit\ctu\PasswordUtil.class
 cit\ctu\NguoiDung.class
 cit\ctu\IChungThuc.class
